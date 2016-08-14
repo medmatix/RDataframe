@@ -1,4 +1,4 @@
-# RDataframe4Cpp
+# RDataframe
    
 ##An R style dataframe class for C plus plus. 
    
