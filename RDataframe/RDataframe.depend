@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1471209229 source:/home/david/Projects/Github_Repositories/git-cola/RDataframe/RDataframe/RDataframe07017.cxx
+	<typeinfo>
+	<cxxabi.h>
+	<iostream>
+	<ostream>
+	<string>
+	<vector>
+	<list>
+	<tuple>
+	<array>
+
