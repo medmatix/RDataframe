@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Rdataframe by medmatix</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Rdataframe</h1>
+      <h2 class="project-tagline">R-style dataframe data structure class(es) for C++</h2>
+      <a href="https://github.com/medmatix/RDataframe" class="btn">View on GitHub</a>
+      <a href="https://github.com/medmatix/RDataframe/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/medmatix/RDataframe/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="rdataframe" class="anchor" href="#rdataframe" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RDataframe</h1>
+
+<h2>
+<a id="an-r-style-dataframe-class-for-c-plus-plus" class="anchor" href="#an-r-style-dataframe-class-for-c-plus-plus" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>An R style dataframe class for C plus plus.</h2>
+
+<h3>
+<a id="overview-and-statment-of-purpose-goal-development" class="anchor" href="#overview-and-statment-of-purpose-goal-development" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview and Statment of purpose (goal development)</h3>
+
+<p>see <a href="https://medmatix.github.io/RDataframe4Cpp/">Project page</a></p>
+
+<p>Perhaps one of the most attractive features in the R language (after the implicit idea vectorization of it's structures and functions) is it's data structures, particularly the dataframe.</p>
+
+<p>This is emulated to a degree in python with the pandas data analysis library. Other interpreted and proprietary statistical environments have approximations or substitutes (like spreadsheets) for dataframes. The use of dataframe like transformational structure have been an obvious part of R packages writtent in C++). A search of the open source C++ template libraried etc has not turned up, for me anyway, the obvious evolution of matrices or lists for C++ programming generally.</p>
+
+<p>This project has the goal of developing an R-like dataframe class for similar applications for analysis of data written entirely in C++. </p>
+
+<p>The necessary building blocks of this dataframe analog are a Variable composite data structure including vector class for the raw data, for the columns of the dataframe, and a list class to contain the variable objects. Of note, R arrays are column major memory structures, so this is a basic adaptation required to privide at least a virtual variable oriented structure.</p>
+
+<p>The R dataframe is, as well, a list derivative with vectors for the columns as elements of the list. The base reference to the  elements (rows and columns) is the usual numeric endices. However, associative reference with variable (column) and observation (row) also a feature.</p>
+
+<p>As I am relatively new to C++, this is my first major project in C++. At this point, my breadth and depth of understanding of C++ represents an impediment to me but revisions provide the experience. Suggestions and comments are welcome.</p>
+
+<h3>
+<a id="contributors" class="anchor" href="#contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributors</h3>
+
+<ul>
+<li>Author: David York (Medmatix)</li>
+</ul>
+
+<h3>
+<a id="development-notes" class="anchor" href="#development-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Development Notes</h3>
+
+<h4>
+<a id="a-todo-list" class="anchor" href="#a-todo-list" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>A Todo List</h4>
+
+<ol>
+<li>Decide on the optimal approach to a mixed type list.</li>
+<li>A complete set of getters and setter as will as appropriate to_string methods for each datatype constructed. Include formatted display methods for each structure.</li>
+<li>Develop a list of functions member and non-member, to include as dataframe manipulator and analysis  functions.</li>
+</ol>
+
+<h4>
+<a id="design-directions" class="anchor" href="#design-directions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Design directions</h4>
+
+<h3>
+<a id="unit-testng-notes" class="anchor" href="#unit-testng-notes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Unit Testng Notes</h3>
+
+<h3>
+<a id="references-and-acknowledgements" class="anchor" href="#references-and-acknowledgements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>References and Acknowledgements</h3>
+
+<p>See related project, <a href="http://medmatix.github.io/UtilCSV">UtilCSV</a></p>
+
+<h3>
+<a id="contacts" class="anchor" href="#contacts" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contacts</h3>
+
+<p>Author web page, <a href="http://crunches-data.appspot.com">http://crunches-data.appspot.com</a>
+Email, <a href="mailto:medmatix@gmail.com">medmatix@gmail.com</a></p>
+
+<p>Copyright 2016 D.A.York</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/medmatix/RDataframe">Rdataframe</a> is maintained by <a href="https://github.com/medmatix">medmatix</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
