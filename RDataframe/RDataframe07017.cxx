@@ -134,6 +134,7 @@ class Dataframe {
 protected:
     int nrows;
     int ncols;
+    string dfName;
     list<Node> dataframe;
     Node variable;
     vector<string> colNames;
@@ -142,15 +143,31 @@ protected:
 
 public:
         Dataframe() {
+            nrows = 0;
+            ncols = 0;
+            colNames.push_back("");
+            Node variable;
         }
 
-        Dataframe(string s) {
+        Dataframe(Node varNode) {
+            ncols = 0;
+            nrows = 0;
+            colNames.push_back(varNode.getVarName());
+            variable = varNode;
         }
 
-        Dataframe(string s, int k) {
+        Dataframe(string s, int r, int c) {
+            dfName = s;
+
         }
 
-        Dataframe(string s1, string s2, int k) {
+        Dataframe(string s1, string s2, int r, int c) {
+        }
+
+
+        /** Dataframe methods     */
+        string getDataFrameName() {
+            return dfName;
         }
 
         void createObsDataframe() {
