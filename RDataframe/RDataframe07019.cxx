@@ -383,7 +383,11 @@ public:
 
 /**
  * \page "Unit Tests"
- *      \ref [main function](./_r_dataframe07019_8cxx.html)
+ *  \section Unit Test Documentation
+ * The main() function is a non-member function related to both the Node class
+ * and the Dataframe class. When complete it will have called all functions of
+ * the two classes as well as any external calls to the CSVUtils library in
+ * order to test import of disk file datasets into the Datarame objects.
  *
  * \fn the main function
  *  The Unit Test suite for the Node and Dataframe classes
