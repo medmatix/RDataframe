@@ -1,5 +1,5 @@
 /*
- * @file: RDataframe07017.cpp
+ * @file: RDataframe07019.cpp
  *
  * @title: An R-type dataframe data-structure class for C++
  *
@@ -8,7 +8,7 @@
  * @author David York
  * @contributors  no others
  * @date Saturday August 13, 2016
- * @version 0.7017
+ * @version 0.7019
  *
  * @description This creates a datatype "dataframe modeled on the R language datatype. Initial memory order is column major.
  *
@@ -166,70 +166,153 @@ public:
 
 
         /** Dataframe methods     */
+
+        /** get the dataframe name,
+         *  @returns a string with the dataframe's name
+         */
         string getDataFrameName() {
             return dfName;
         }
 
+        /** create a table of observations from the dataframe listing variable
+         *  observation(s) (values) as tuples,
+         *  @param none
+         *  @return none (void)
+         */
         void createObsDataframe() {
         }
 
+        /** get the whole dataframe as a list of nodes
+         *  @param none
+         *  @return dataframe, ie. a list of nodes which is the dataframe itself
+         */
         list<Node> getDataframe() {
             return dataframe;
         }
 
+        /** get observations from a row of the dataframe structure
+         *  observation(s) as tuples,
+         *  @param the row to fetch
+         *  @return a pointer to the tuple conta ining variable values in the
+         *          row
+         */
         void* getObs(int rowNumber) {
             string dummyReturn = "";
             //get obs one at a time across row and then pass ALL to make_tuple
             auto obsRow = make_tuple(rowNumber, dummyReturn);
             return &obsRow;
-
         }
 
+        /** get a range of rows, ie. observation(s) as tuples,
+         *  @param the rows to fetch
+         *  @return vector<tuple>, the variable values in the rows (as a pointer to a vector
+         *                           of tuple)
+         */
         vector<string> getRangeRows() {
             vector<string> aRange;
             aRange.push_back("");
             return aRange;
         }
 
+        /** get list of variable names (column names) of the dataframe.
+         *  @param null
+         *  @return vector<string> varNames, the variable names as a vector of
+         *          strings
+         */
         vector<string> getVarNames() {
             return colNames;
         }
 
+        /** get a variable with meta-data and the dataset stored in it.
+         *  This is a node.
+         *  @param vName the node or variable name to fetch, default NULL, or
+         *         vNumber the node or variable number to fetch default 0
+         *  @return the variable node
+         */
         Node getNode(string vName= "", int vNumber = 0) {
             Node variable;
             return variable;
         }
 
+        /** get data range or block from one or more variables (columns) of the
+         *  dataframe structure,
+         *  @param the rows and columns to fetch
+         *         r1, c1, r2, c2
+         *  @return a pointer to a block of values for the range selected
+         */
         void* getDataRange(int r1,int c1,int r2, int c2) {
             vector<string> aRange;
             aRange.push_back("");
             return &aRange;
         }
 
-        void addObsTuple() {
+        /** add a row of observations to the dataframe structure tuples,
+         *  @param the tuple of observations to add
+         *  @return none (void)
+         */
+        void addObsTuple(void* obsRow) {
         }
 
-        void setNodeData() {
+        /** add a new Node/variable or (re)set the contents of a Node or variable,
+         *  @note Consider whether this functionality should be split further
+         *        between variable data edit, Node content resets and node add.
+         *  @param Node varNode with all the variable meta-data and data,
+         *         vNumber, the position number of the variable. if exists,
+         *                  reset, if new add
+         *  @return none (void)
+         */
+        void setNodeData(Node varNode, int vNumber) {
         }
 
-        void loadFromCSV() {
+        /** load data from a CSV into the dataframe,
+         *  @param csvFName, this name and path of the file to read and import
+         *                  the data from
+         *         header, a boolean indicating if the first row of CSV
+         *                 contains column names
+         *  @return none (void)
+         */
+        void loadFromCSV(string csvFName, bool header) {
         }
 
-        void saveToCSV() {
+        /** save the dataframe contents (with or without a header line) to a
+         *  CSV file,
+         *  @param csvFName to save to (defaults to 'datafile')
+         *         header a boolean to say wther to include column names
+         *  @return none (void)
+         */
+        void saveToCSV(string csvFName) {
         }
 
+        /** display the dataframe as a table or wxGrid structure,
+         *  @param none
+         *  @return none (void)
+         */
         void displayDataframe() {
         }
 
+        /** display the node/variable of the dataframe,
+         *  @param varName variable to display by name
+         *         varNumber variable number to display
+         *  @return none (void)
+         */
         void displayNodeData() {
         }
 
+        /** convert the full dataframe contents to a string stream,
+         *  @param none
+         *  @return none (void)
+         */
         string toStringStream() {
             return "";
         }
 };
 
-
+/**
+ *  The Unit Test suite for the Node and Dataframe classes
+ *  @param argc, an int argument (optional)
+ *         argv, a character array
+ *  @return an int, 0 if runs successfully (ie. no errors)
+ */
 int main(int argc, char **argv)
 {
 
