@@ -45,12 +45,13 @@
 #include <list>
 #include <tuple>
 #include <array>
+#include <initializer_list>
 //#include <boost/any.hpp>
 
 using namespace std;
 
 /**
- * The Node Class to contain a variable, it's meta-data and it's data,
+ * Node Class to contain a variable, it's meta-data and it's data,
  *  (or rather a pointer to a vector containing the data
  */
 class Node {
@@ -66,6 +67,7 @@ class Node {
         int varNumber;
         /** a pointer to the start in memory of the vector for variable data*/
         void* ptrData;
+        int nrows;
 
 	public:
 	    /** default constructor */
@@ -84,13 +86,7 @@ class Node {
             ptrData = pVData;
         }
 
-        /** constructor all meta data for variable and data as pointer to an array */
-        Node(string vName, string vType, int vNumber, void* &pAData) {
-            varName = vName;
-            varType = vType;
-            varNumber = vNumber;
-            ptrData = &pAData;
-        }
+
 
         /** the Node class methods */
 
@@ -101,8 +97,8 @@ class Node {
          *          the variable number of position intended in the dataframe
          *          (int) and a pointer to the variable data itself
          */
-        tuple<string, string, int, void*> getNodeInfo() {
-            return make_tuple(varName, varType, varNumber, ptrData);
+        tuple<string, string, int, int void*> getNodeInfo() {
+            return make_tuple(varName, varType, varNumber, nrows, ptrData);
         }
 
         /** get a range of variable data from the node vector
@@ -146,6 +142,38 @@ class Node {
             return varNumber;
         }
 
+        /** get nrows, the number of data rows in the Node vector
+         *  @param none
+         *  @return nrows, an int with the number of data rows in vector
+         */
+        int getNRows() {
+            return nrows;
+        }
+
+        /** set the variable data, with a pointer to the data vector
+         *  @param r, int with the number of rows in data vector (i.e its size)
+         *  @param vName, string with variable name
+         *  @param vType, string with variable type
+         *  @param vNumber, int with variable (position number
+         *  @param vData, pointer to data vector
+         *  @return none, (void)
+         */
+        void setNodeContent(int r; string vName, string vType, int vNumber, void* pvData) {
+            varName = vName;
+            varType = vType;
+            varNumber = vNumber;
+            ptrData = pvData;
+            nrows = r;
+        }
+
+        /** set the variable data, with a pointer to the data vector
+         *  @param r, the number of rows/elements in data vector
+         *  @return none (void)
+         */
+        void setVarDataRows(int = r) {
+            nrows = r;
+        }
+
         /** set the variable data, with a pointer to the data vector
          *  @param pointer to data
          *  @return none (void)
@@ -154,7 +182,7 @@ class Node {
             ptrData = vData;
         }
 
-        /** get the variable Name (node meta-datum varName)
+        /** set the variable Name (nvector<int> year {data[0]};ode meta-datum varName)
          *  @param the variable name (string)
          *  @return none (void)
          */
@@ -162,7 +190,7 @@ class Node {
             varName = vName;
         }
 
-        /** get the variable type (node meta-datum varType)
+        /** set the variable type (node meta-datum varType)
          *  @param the variable type (string)
          *  @return none (void)
          */
@@ -170,7 +198,7 @@ class Node {
             varType = vType;
         }
 
-        /** get the variable (position)number (node meta-datum varNumber)
+        /** set the variable (position)number (node meta-datum varNumber)
          *  @param the variable type (string)
          *  @return none (void)
          */
@@ -183,6 +211,11 @@ class Node {
          *  @return none (void)
          */
 		void displayNode() {
+		    cout << "name: " << varName << endl;
+		    cout << "type: " << varType << endl;
+		    cout << "position number: " << varNumber << endl;
+		    cout << "data address: " << ptrData << endl;
+		    cout << "first data point value: " << (*(vector<int>*)ptrData)[0] << endl;
 
 		}
 
@@ -190,15 +223,28 @@ class Node {
          *  @param none
          *  @return none (void)
          */
-		void displayName_Type() {}
+		void displayName_Type() {
+		    cout << "Variable Name: " << varName << endl;
+            cout << "Variable Type: " << varType << endl;
+		}
 
         /** convert the node data to a string
          *  @param none
          *  @return the node as a continuous string (potentially a string stream
          */
-		string to_String() {
-         string strVarName = varName;
-			return strVarName;
+		string toString() {
+            string strVarName = varName;
+            string strVarType = varType;
+            string strVarNumber =  to_string(varNumber);
+            string strVarData = "";
+            int dataElement;
+
+            for(int i = 0; i<12; ++i) {
+                dataElement = (*(vector<int>*)ptrData)[i];
+                strVarData = strVarData+" "+to_string(dataElement);
+            }
+			string retStr = strVarName+" "+strVarType+" "+strVarNumber+" "+strVarData;
+			return retStr;
 		}
 };
 
@@ -382,6 +428,13 @@ public:
 };
 
 /**
+ * \page "Unit Tests"
+ *  \section Unit Test Documentation
+ * The main() function is a non-member function related to both the Node class
+ * and the Dataframe class. When complete it will have called all functions of
+ * the two classes as well as any external calls to the CSVUtils library in
+ * order to test import of disk file datasets into the Datarame objects.
+ *
  * \fn the main function
  *  The Unit Test suite for the Node and Dataframe classes
  *  @param argc, an int argument (optional)
@@ -391,17 +444,99 @@ public:
 int main(int argc, char **argv)
 {
     //Test Suite Heading
-    cout << "Unit Test Suite:" << endl;
+    cout << "  Unit Test Suite:" << endl;
+    cout << "  ================" << endl << endl;
+    cout << "Getting test data. . ." << endl << endl;
+    /** Make working data arrays for unit tests
+    *   from AirPassengers.csv, a base R dataset */
+    initializer_list<int> data[13];
+    initializer_list<string> colHead = {"Date","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
+    data[0] = {1949, 1950, 1951, 1952, 1953, 1954, 1955, 1956, 1957, 1958, 1959, 1960};
+    data[1] = {112, 115, 145, 171, 196, 204, 242, 284, 315, 340, 360, 417};
+    data[2] = {118, 126, 150, 180, 196, 188, 233, 277, 301, 318, 342, 391};
+    data[3] = {132, 141, 178, 193, 236, 235, 267, 317, 356,362, 406, 419};
+    data[4] = {129, 135, 163, 181, 235, 227, 269, 313, 348, 348, 396, 461};
+    data[5] = {121, 125, 172, 183, 229, 234, 270, 318, 355, 363, 420, 472};
+    data[6] = {135, 149, 178, 218, 243, 264, 315, 374, 422, 435, 472, 535};
+    data[7] = {148, 170, 199, 230, 264, 302, 364, 413, 465, 491, 548, 622};
+    data[8] = {148, 170, 199, 242, 272, 293, 347, 405, 467, 505, 559, 606};
+    data[9] = {136, 158, 184, 209, 237, 259, 312, 355, 404, 404, 463, 508};
+    data[10] = {119, 133, 162, 191, 211, 229, 274, 306, 347, 359, 407, 461};
+    data[11] = {104, 114, 146, 172, 180, 203, 237, 271, 305, 310, 362, 390};
+    data[12] = {118, 140, 166, 194, 201, 229, 278, 306, 336, 337, 405, 432};
+    vector<string> cnames {colHead};
+    vector<int> year {data[0]};
+    vector<int> jan {data[1]};
+    vector<int> feb {data[2]};
+    vector<int> mar {data[3]};
+    vector<int> apr {data[4]};
+    vector<int> may {data[5]};
+    vector<int> jun {data[6]};
+    vector<int> jul {data[7]};
+    vector<int> aug {data[8]};
+    vector<int> sep {data[9]};
+    vector<int> oct {data[10]};
+    vector<int> nov {data[11]};
+    vector<int> dec {data[12]};
+
+//    cout << "Number of columns: " << ncols <<< endl;
+//    int nrows = colhead.length
+    //cout << "Number of columns: " << ncols <<< endl;
 
     /** Node tests */
+    string vName;
+    string vType;
+    int vNumber;
+    void* pVData;
     /** test default constructors*/
+    vName = "Date";
+    vType = "int";
+    vNumber = 0;
+    pVData =&year;
     Node variable1;
-    ;
+    variable1.setNodeContent(vName, vType, vNumber, pVData);
+    cout << "NODE #: " << vNumber << endl;
+    variable1.displayNode();
+    cout << endl;
+    variable1.displayName_Type();
+    cout << endl << endl;
+
 
     /** test full constructors */
+    vName = "Jan";
+    vType = "int";
+    vNumber = 1;
+    pVData = &jan;
+    Node variable2(vName, vType, vNumber, pVData);
+    cout << "NODE #: " << vNumber << endl;
+    variable2.displayNode();
+    cout << endl << endl;
+
+
+
 
     /** test various class methods */
+    /**    Setters */
+    cout << "testing setters . . ."<<endl;
+    cout<<endl;
+    variable2.setVarName("other");
+    variable2.setVarType("long");
+    cout << "show adjusted name and type"<< endl;
+    variable2.displayName_Type();
+    cout<<endl;
+    variable2.setVarNumber(3),
+    cout << "changed position number and show the whole amended node," << endl;
+    variable2.displayNode();
+    cout<<endl;
+    cout << "return comtemts to original and display the node again." <<endl;
+    variable2.setNodeContent(vName, vType, vNumber, pVData);
+    cout << "NODE #: " << vNumber << endl;
+    variable2.displayNode();
+    cout << endl << endl;
 
+    cout << "Check Node.toString() function " << endl << variable2.toString() << endl;
+
+    /**    Getters */
 
     /** Dataframe tests */
     /** test default constructors*/
