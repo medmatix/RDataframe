@@ -34,6 +34,7 @@ As I am relatively new to C++, this is my first major project in C++. At this po
 
 ###References and Acknowledgements
 See related project, [UtilCSV](http://medmatix.github.io/UtilCSV)
+and the consolidated library project incorportating all components,[libRDataFrame](http://medmatix.github.io/libRDataFrame)
 
 ###Contacts
 Author web page, http://crunches-data.appspot.com
