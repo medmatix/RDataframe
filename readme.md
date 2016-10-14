@@ -3,7 +3,7 @@
 ### As an  R style data.frame class, with methods, for C plus plus. 
    
 ### Overview and Statement of purpose (goal development)
-see [Project page](https://medmatix.github.io/RDataframe/)
+see [Project page](https://medmatix.github.io/dataframe/)
 
 Perhaps one of the most attractive features in the R language (after the implicit idea vectorization of it's structures and functions) is it's data structures, particularly the dataframe.
 
