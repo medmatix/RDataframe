@@ -1,8 +1,8 @@
-# RDataframe
+# Dataframe
+## An active data table class 
+### As an  R style data.frame class, with methods, for C plus plus. 
    
-##An R style dataframe class for C plus plus. 
-   
-### Overview and Statment of purpose (goal development)
+### Overview and Statement of purpose (goal development)
 see [Project page](https://medmatix.github.io/RDataframe/)
 
 Perhaps one of the most attractive features in the R language (after the implicit idea vectorization of it's structures and functions) is it's data structures, particularly the dataframe.
