@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['createobsdataframe',['createObsDataframe',['../class_dataframe.html#a2af456381793b20d7ad8f67c17a71c58',1,'Dataframe']]],
-  ['code_20for_20project',['Code for Project',['../md__r_dataframe_readme.html',1,'']]]
+  ['dataframe',['dataframe',['../classdataframe.html',1,'dataframe'],['../classdataframe.html#a4ddfcbd8b4c6a38a5439811e9a8621e8',1,'dataframe::dataframe()']]],
+  ['display',['display',['../classdataframe.html#a4e58145b2d64a0b67f13900a251dfedf',1,'dataframe']]],
+  ['design_20notes',['Design Notes',['../md_design_notes__design__notes.html',1,'']]],
+  ['dataframe',['Dataframe',['../md_readme.html',1,'']]]
 ];

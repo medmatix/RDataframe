@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['addobstuple',['addObsTuple',['../class_dataframe.html#aeab7ac8a12b2b398a7c29a1cc1cecc3d',1,'Dataframe']]]
+  ['adddatanode',['addDataNode',['../classdataframe.html#a310d30479c5be5fbdbe54fdb4f9e4d31',1,'dataframe']]]
 ];

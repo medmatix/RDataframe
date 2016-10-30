@@ -1,0 +1,6 @@
+<map id="node" name="node">
+<area shape="rect" id="node2" href="$classnode_dbl.html" title="nodeDbl" alt="" coords="5,80,76,107"/>
+<area shape="rect" id="node3" href="$classnode_int.html" title="nodeInt" alt="" coords="100,80,165,107"/>
+<area shape="rect" id="node5" href="$classnode_str.html" title="nodeStr" alt="" coords="190,80,257,107"/>
+<area shape="rect" id="node4" href="$classnode_cat.html" title="nodeCat" alt="" coords="97,155,168,181"/>
+</map>
