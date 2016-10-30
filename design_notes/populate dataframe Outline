@@ -1,0 +1,29 @@
+
+get the utilCSV::strDStruct (a vector of vectors of strings)
+
+create a vector of nodes (j = ncols node)
+
+create a vector of strings 
+
+PopulateNode:
+	create a node[j]
+
+	
+
+	populate vector of strings from column j of strDStruct rows vectors
+
+	clone vector of strinngs (to new memory address)
+
+	assign cloned vector of strings pointer to Node ptrData pointer
+
+	add node to vector(node) at position [j]
+
+	clear vector of strings
+
+increase j (if not = ncol) and do PopulateNode again 
+
+when done return new df
+
+
+
+

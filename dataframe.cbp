@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="dataframe.md" />
+		<Unit filename="readme.md" />
 		<Extensions>
 			<code_completion />
 			<envvars />
