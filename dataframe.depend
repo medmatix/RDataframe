@@ -1,0 +1,81 @@
+# depslib dependency file v1.0
+1477852745 source:/home/david/Projects/Github_Repositories/git-cola/dataframe/src/dataframe.cpp
+	"dataframe.h"
+
+1477853161 /home/david/Projects/Github_Repositories/git-cola/dataframe/include/dataframe.h
+	"node.h"
+	"nodeInt.h"
+	"nodeDbl.h"
+	"nodeStr.h"
+	"nodeCat.h"
+
+1477853387 source:/home/david/Projects/Github_Repositories/git-cola/dataframe/main.cpp
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+	"node.h"
+	"nodeInt.h"
+	"nodeDbl.h"
+	"nodeStr.h"
+	"nodeCat.h"
+
+1477853014 /home/david/Projects/Github_Repositories/git-cola/dataframe/include/node.h
+	<cstdio>
+	<cstdlib>
+	<cctype>
+	<iostream>
+	<ostream>
+	<fstream>
+	<sstream>
+	<string>
+	<vector>
+	<map>
+	<tuple>
+	<algorithm>
+	<typeinfo>
+	<cxxabi.h>
+	<array>
+	<initializer_list>
+	<boost/any.hpp>
+
+1477512291 /home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeInt.h
+	<node.h>
+
+1477512654 /home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeDbl.h
+	<node.h>
+
+1477512654 /home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeStr.h
+	<node.h>
+
+1477512654 /home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeCat.h
+	<nodeInt.h>
+
+1477508945 source:/home/david/Projects/Github_Repositories/git-cola/dataframe/include/node.cpp
+	"node.h"
+
+1477513501 source:/home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeCat.cpp
+	"nodeCat.h"
+
+1477513286 source:/home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeDbl.cpp
+	"nodeDbl.h"
+
+1477513611 source:/home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeInt.cpp
+	"nodeInt.h"
+
+1477513685 source:/home/david/Projects/Github_Repositories/git-cola/dataframe/include/nodeStr.cpp
+	"nodeStr.h"
+

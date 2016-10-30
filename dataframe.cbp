@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="include" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -22,6 +23,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -33,7 +35,22 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="dataframe.md" />
+		<Unit filename="design_notes/Design Notes.md" />
+		<Unit filename="design_notes/dataTableClass.dia" />
+		<Unit filename="include/dataframe.h" />
+		<Unit filename="include/node.cpp" />
+		<Unit filename="include/node.h" />
+		<Unit filename="include/nodeCat.cpp" />
+		<Unit filename="include/nodeCat.h" />
+		<Unit filename="include/nodeDbl.cpp" />
+		<Unit filename="include/nodeDbl.h" />
+		<Unit filename="include/nodeInt.cpp" />
+		<Unit filename="include/nodeInt.h" />
+		<Unit filename="include/nodeStr.cpp" />
+		<Unit filename="include/nodeStr.h" />
+		<Unit filename="main.cpp" />
 		<Unit filename="readme.md" />
+		<Unit filename="src/dataframe.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
